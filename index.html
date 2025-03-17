@@ -7,53 +7,64 @@
     <title>Copiar Chave PIX</title>
     <script>
         function copiarChave() {
-            // Define a chave PIX
             const chavePIX = "499a67bb-7131-425f-aa62-aaf29e5177d1";
 
-            // Cria um elemento temporário para copiar o texto
-            const inputTemp = document.createElement("input");
-            inputTemp.value = chavePIX;
-            document.body.appendChild(inputTemp);
-            inputTemp.select();
-            document.execCommand("copy");
-            document.body.removeChild(inputTemp);
+            // Copia para a área de transferência
+            navigator.clipboard.writeText(chavePIX).then(() => {
+                const botao = document.getElementById("botaoCopiar");
+                botao.textContent = "Chave PIX Copiada!";
+                botao.style.backgroundColor = "#4CAF50"; // Verde
 
-            // Alerta ou notificação visual
-            alert("Chave PIX copiada!");
+                // Reseta o texto do botão após 2 segundos
+                setTimeout(() => {
+                    botao.textContent = "Copiar Chave PIX";
+                    botao.style.backgroundColor = "#008CBA"; // Azul
+                }, 2000);
+            }).catch(err => {
+                alert("Erro ao copiar a chave PIX. Tente novamente!");
+                console.error("Erro ao copiar:", err);
+            });
         }
     </script>
     <style>
         body {
             display: flex;
             flex-direction: column;
-            /* Empilha os elementos verticalmente */
-            justify-content: center;
-            /* Distribui o espaço entre os elementos */
             align-items: center;
-            /* Centraliza no eixo horizontal */
+            justify-content: center;
+            /*height: 100vh;*/
             margin: 0;
             background-color: #ECEBE6;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+        button {
+            background-color: #008CBA;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #005f80;
         }
     </style>
 </head>
 
 <body>
-    <h1>
-        XXV EJC - Paróquia Nossa Senhora de Fátima - Boa Viagem
-    </h1>
-    <br>
-    <h3>
-        <a href="#" onclick="copiarChave(); return false;">Clique aqui para copiar a chave PIX de Pagamento da Inscrição
-            do EJC</a>
-    </h3>
-    <br>
-    <b>
-        Sede alegres na esperança, pacientes na tribulação e perseverantes na oração.
-    </b>
-    <i>
-        Rm 12, 12
-    </i>
+    <img src="logo_EJC_sem_fundo.PNG" width="200" height="200">
+    <h1>XXV EJC - Paróquia Nossa Senhora de Fátima - Boa Viagem</h1>
+    <b>Sede alegres na esperança, pacientes na tribulação e perseverantes na oração.</b>
+    <i>Rm 12, 12</i>
+    <br><br>
+
+    <!-- Botão para copiar a chave PIX -->
+    <button id="botaoCopiar" onclick="copiarChave()">Copiar Chave PIX</button>
 </body>
 
 </html>
