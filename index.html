@@ -14,12 +14,12 @@
             navigator.clipboard.writeText(chavePIX).then(() => {
                 const botao = document.getElementById("botaoCopiar");
                 botao.textContent = "Chave PIX Copiada!";
-                botao.style.backgroundColor = "#4CAF50"; // Verde
+                botao.style.backgroundColor = "#D0D465"; // Verde
 
                 // Reseta o texto do botão após 2 segundos
                 setTimeout(() => {
                     botao.textContent = "Copiar Chave PIX";
-                    botao.style.backgroundColor = "#008CBA"; // Azul
+                    botao.style.backgroundColor = "#0441AB"; // Azul
                 }, 2000);
             }).catch(err => {
                 alert("Erro ao copiar a chave PIX. Tente novamente!");
@@ -41,7 +41,7 @@
         }
 
         button {
-            background-color: #008CBA;
+            background-color: #0441ab;
             color: white;
             font-size: 16px;
             padding: 10px 20px;
