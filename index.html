@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
         function copiarChave() {
             // Define a chave PIX
             const chavePIX = "499a67bb-7131-425f-aa62-aaf29e5177d1";
-            
+
             // Cria um elemento temporário para copiar o texto
             const inputTemp = document.createElement("input");
             inputTemp.value = chavePIX;
@@ -16,25 +17,36 @@
             inputTemp.select();
             document.execCommand("copy");
             document.body.removeChild(inputTemp);
-            
+
             // Alerta ou notificação visual
             alert("Chave PIX copiada!");
         }
     </script>
     <style>
-        body{
+        body {
+            display: flex;
+            flex-direction: column;
+            /* Empilha os elementos verticalmente */
+            justify-content: center;
+            /* Distribui o espaço entre os elementos */
+            align-items: center;
+            /* Centraliza no eixo horizontal */
+            margin: 0;
             background-color: #ECEBE6;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        } 
+        }
     </style>
 </head>
+
 <body>
-	<h1>
-		XXV EJC - Paróquia Nossa Senhora de Fátima - Boa Viagem
-	</h1>
-	<br>
+    <h1>
+        XXV EJC - Paróquia Nossa Senhora de Fátima - Boa Viagem
+    </h1>
+    <br>
     <h3>
-		<a href="#" onclick="copiarChave(); return false;">Clique aqui para copiar a chave PIX de Pagamento da Inscrição do EJC</a>
-	</h3>
+        <a href="#" onclick="copiarChave(); return false;">Clique aqui para copiar a chave PIX de Pagamento da Inscrição
+            do EJC</a>
+    </h3>
 </body>
+
 </html>
